@@ -11,23 +11,51 @@ import CoreData
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
 
+    
+    // Properti wrapper untuk memanggil data yang ada di local storage
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
+        // Sorting logic berdasarkan timestamp secara ascending
+        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: false)],
         animation: .default)
+    // Fetch Results yang bernama Item (Entity)
     private var items: FetchedResults<Item>
+    
+    @State private var searchText: String = ""
+    
+    private var searchItem: [Item] {
+        if searchText.isEmpty {
+            // Perulangan dalam items map lalu setiap item
+            // ditandai dengan $0 dan dilakukan mapping perubahan
+            // sesuai dengan bentuk yang diinginkan, dan dalam kasus ini
+            // bentuknya adalah array item  [Item]
+            return items.compactMap({ $0 })
+        } else {
+            return items.filter { item in
+                (item.title ?? "").lowercased().contains(searchText.lowercased()) ||
+                (item.content ?? "").lowercased().contains(searchText.lowercased())
+            }
+        }
+    }
 
     var body: some View {
         NavigationView {
             List {
-                ForEach(items) { item in
+                ForEach(searchItem) { item in
                     NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+                        NoteView(item: item)
                     } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
+                        VStack(alignment: .leading) {
+                            Text(item.title ?? "")
+                                .font(.headline)
+                            
+                            Text(item.content ?? "")
+                        }
                     }
                 }
                 .onDelete(perform: deleteItems)
             }
+            .navigationTitle("All Notes")
+            .searchable(text: $searchText)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     EditButton()
@@ -38,7 +66,6 @@ struct ContentView: View {
                     }
                 }
             }
-            Text("Select an item")
         }
     }
 
@@ -46,6 +73,8 @@ struct ContentView: View {
         withAnimation {
             let newItem = Item(context: viewContext)
             newItem.timestamp = Date()
+            newItem.title = "New Note"
+            newItem.content = "your new note for this application"
 
             do {
                 try viewContext.save()
@@ -60,6 +89,7 @@ struct ContentView: View {
 
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
+            // untuk swipe delete based on data
             offsets.map { items[$0] }.forEach(viewContext.delete)
 
             do {

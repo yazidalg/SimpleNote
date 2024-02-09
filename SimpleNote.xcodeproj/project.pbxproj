@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A1E4ED62B73BD7B00E048FA /* NoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1E4ED52B73BD7B00E048FA /* NoteView.swift */; };
 		8AA011402B73B32300DEC4F5 /* SimpleNoteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA0113F2B73B32300DEC4F5 /* SimpleNoteApp.swift */; };
 		8AA011422B73B32300DEC4F5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA011412B73B32300DEC4F5 /* ContentView.swift */; };
 		8AA011442B73B32500DEC4F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AA011432B73B32500DEC4F5 /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8A1E4ED52B73BD7B00E048FA /* NoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteView.swift; sourceTree = "<group>"; };
 		8AA0113C2B73B32300DEC4F5 /* SimpleNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AA0113F2B73B32300DEC4F5 /* SimpleNoteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleNoteApp.swift; sourceTree = "<group>"; };
 		8AA011412B73B32300DEC4F5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				8AA011482B73B32500DEC4F5 /* Persistence.swift */,
 				8AA0114A2B73B32500DEC4F5 /* SimpleNote.xcdatamodeld */,
 				8AA011452B73B32500DEC4F5 /* Preview Content */,
+				8A1E4ED52B73BD7B00E048FA /* NoteView.swift */,
 			);
 			path = SimpleNote;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AA011492B73B32500DEC4F5 /* Persistence.swift in Sources */,
+				8A1E4ED62B73BD7B00E048FA /* NoteView.swift in Sources */,
 				8AA011422B73B32300DEC4F5 /* ContentView.swift in Sources */,
 				8AA011402B73B32300DEC4F5 /* SimpleNoteApp.swift in Sources */,
 				8AA0114C2B73B32500DEC4F5 /* SimpleNote.xcdatamodeld in Sources */,
