@@ -17,6 +17,9 @@
 		8AA011562B73B32500DEC4F5 /* SimpleNoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA011552B73B32500DEC4F5 /* SimpleNoteTests.swift */; };
 		8AA011602B73B32500DEC4F5 /* SimpleNoteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA0115F2B73B32500DEC4F5 /* SimpleNoteUITests.swift */; };
 		8AA011622B73B32500DEC4F5 /* SimpleNoteUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA011612B73B32500DEC4F5 /* SimpleNoteUITestsLaunchTests.swift */; };
+		8AF1EB822B764D7F0017B4DA /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 8AF1EB812B764D7F0017B4DA /* Lottie */; };
+		8AF1EB842B764EAD0017B4DA /* LottieFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF1EB832B764EAD0017B4DA /* LottieFile.swift */; };
+		8AF1EB862B76503E0017B4DA /* success.json in Resources */ = {isa = PBXBuildFile; fileRef = 8AF1EB852B76503D0017B4DA /* success.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +53,8 @@
 		8AA0115B2B73B32500DEC4F5 /* SimpleNoteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleNoteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AA0115F2B73B32500DEC4F5 /* SimpleNoteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleNoteUITests.swift; sourceTree = "<group>"; };
 		8AA011612B73B32500DEC4F5 /* SimpleNoteUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleNoteUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		8AF1EB832B764EAD0017B4DA /* LottieFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieFile.swift; sourceTree = "<group>"; };
+		8AF1EB852B76503D0017B4DA /* success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = success.json; path = ../../../../../Downloads/success.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AF1EB822B764D7F0017B4DA /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,11 +108,13 @@
 			children = (
 				8AA0113F2B73B32300DEC4F5 /* SimpleNoteApp.swift */,
 				8AA011412B73B32300DEC4F5 /* ContentView.swift */,
+				8AF1EB852B76503D0017B4DA /* success.json */,
 				8AA011432B73B32500DEC4F5 /* Assets.xcassets */,
 				8AA011482B73B32500DEC4F5 /* Persistence.swift */,
 				8AA0114A2B73B32500DEC4F5 /* SimpleNote.xcdatamodeld */,
 				8AA011452B73B32500DEC4F5 /* Preview Content */,
 				8A1E4ED52B73BD7B00E048FA /* NoteView.swift */,
+				8AF1EB832B764EAD0017B4DA /* LottieFile.swift */,
 			);
 			path = SimpleNote;
 			sourceTree = "<group>";
@@ -152,6 +160,9 @@
 			dependencies = (
 			);
 			name = SimpleNote;
+			packageProductDependencies = (
+				8AF1EB812B764D7F0017B4DA /* Lottie */,
+			);
 			productName = SimpleNote;
 			productReference = 8AA0113C2B73B32300DEC4F5 /* SimpleNote.app */;
 			productType = "com.apple.product-type.application";
@@ -224,6 +235,9 @@
 				Base,
 			);
 			mainGroup = 8AA011332B73B32300DEC4F5;
+			packageReferences = (
+				8AF1EB802B764D7E0017B4DA /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
 			productRefGroup = 8AA0113D2B73B32300DEC4F5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -242,6 +256,7 @@
 			files = (
 				8AA011472B73B32500DEC4F5 /* Preview Assets.xcassets in Resources */,
 				8AA011442B73B32500DEC4F5 /* Assets.xcassets in Resources */,
+				8AF1EB862B76503E0017B4DA /* success.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +283,7 @@
 			files = (
 				8AA011492B73B32500DEC4F5 /* Persistence.swift in Sources */,
 				8A1E4ED62B73BD7B00E048FA /* NoteView.swift in Sources */,
+				8AF1EB842B764EAD0017B4DA /* LottieFile.swift in Sources */,
 				8AA011422B73B32300DEC4F5 /* ContentView.swift in Sources */,
 				8AA011402B73B32300DEC4F5 /* SimpleNoteApp.swift in Sources */,
 				8AA0114C2B73B32500DEC4F5 /* SimpleNote.xcdatamodeld in Sources */,
@@ -589,6 +605,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8AF1EB802B764D7E0017B4DA /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8AF1EB812B764D7F0017B4DA /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8AF1EB802B764D7E0017B4DA /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		8AA0114A2B73B32500DEC4F5 /* SimpleNote.xcdatamodeld */ = {

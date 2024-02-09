@@ -21,6 +21,7 @@ struct ContentView: View {
     private var items: FetchedResults<Item>
     
     @State private var searchText: String = ""
+    @State private var deleteItem = false
     
     private var searchItem: [Item] {
         if searchText.isEmpty {
@@ -41,14 +42,23 @@ struct ContentView: View {
         NavigationView {
             List {
                 ForEach(searchItem) { item in
-                    NavigationLink {
-                        NoteView(item: item)
-                    } label: {
-                        VStack(alignment: .leading) {
-                            Text(item.title ?? "")
-                                .font(.headline)
-                            
-                            Text(item.content ?? "")
+                    if deleteItem {
+                        LottieView(loopMode: .loop)
+                            .onAppear {
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                                    deleteItem = true
+                                }
+                            }
+                    } else {
+                        NavigationLink {
+                            NoteView(item: item)
+                        } label: {
+                            VStack(alignment: .leading) {
+                                Text(item.title ?? "")
+                                    .font(.headline)
+                                
+                                Text(item.content ?? "")
+                            }
                         }
                     }
                 }
@@ -94,6 +104,7 @@ struct ContentView: View {
 
             do {
                 try viewContext.save()
+                deleteItem = true
             } catch {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
